@@ -1,0 +1,87 @@
+#_showBox {
+    position: fixed;
+    _position: absolute;
+    left:-9999px;
+    top:-9999px;
+    z-index: 99999;
+    display:none;
+}
+#_showBox #header {
+    position: relative;
+    height:38px;
+    color:#fff;
+    text-align:left;
+    line-height:42px;
+    font-size:18px;
+    background-color:#f08300;
+    width:100%;
+    text-indent:15px;
+}
+#_showBox #headerDrag {
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    height:42px;
+    width:100%;
+    background-color:#333;
+    filter:alpha(opacity=0);
+    opacity:0;
+}
+#_showBox #header #close {
+    display:block;
+    position:absolute;
+    top:-4px;
+    right:17px;
+    font-size:14px;
+    color:#fff;
+    z-index:2;
+    height:14px;
+}
+#_showBox #header #close:hover {
+    text-decoration:none;
+}
+/*#_showBox #header #close:active {
+	background-image: url(box/close-active.png);
+}*/
+#_showBox #content {
+    padding:0px;
+    background-color:#FFF;
+}
+#_showBox_overlay {
+    position: fixed;
+    _position: absolute;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background-color: #000;
+    z-index: 99998;
+}
+#_showBox .defaultBox {
+    width:100px;
+    height:100px;
+}
+
+.box_loading{
+    position:fixed;
+    _position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10000;
+    display:none;
+}
+
+.box_loading div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 480px;
+}

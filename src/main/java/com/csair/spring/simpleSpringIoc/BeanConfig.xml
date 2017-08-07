@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<spring>
+    <bean id="mybean" class="com.csair.spring.simpleSpringIoc.MyBean">
+
+    </bean>
+    <bean id="mybean2" class="com.csair.spring.simpleSpringIoc.MyBean2">
+
+    </bean>
+</spring>

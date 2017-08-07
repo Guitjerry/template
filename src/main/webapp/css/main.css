@@ -1,0 +1,211 @@
+/*手机端样式*/
+html{
+    font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%**/
+}
+body{
+    font-size: 1.6rem;/*1.6*10px = 16**/
+}
+.f_wrem1{
+    width: 1rem;
+}
+.f_wrem5{
+    width: 5rem;
+}
+.f_wrem10{
+    width: 10rem;
+}
+.f_remsize1{
+    font-size: 1rem;
+}
+.f_ml1{
+    margin-left: 1rem;
+}
+
+.f_ml2{
+    margin-left: 2rem;
+}
+.f_mt1{
+    margin-top:1rem;
+}
+.f_mt2{
+    margin-top:2rem;
+}
+.bar{right:0;left:0;z-index:10;height:2rem;background-color: #4fb652;;-webkit-backface-visibility:hidden;backface-visibility:hidden; color:#FFF;}
+.bar-nav{top:0}
+.title{position:absolute;display:block;width:100%;padding:0;font-weight:500;line-height:2rem;color:#FFF;text-align:center;white-space:nowrap;font-size: 1rem}
+.title a{color:inherit}
+
+
+/*底部字体*/
+.footer-font{
+    font-size:16px;
+}
+/*颜色*/
+.f-lightgreen{
+    background: rgba(216,251,250,250);
+}
+
+/**
+ * 定义预定义字体样式
+ */
+::-webkit-input-placeholder { color: #999; }
+:-moz-placeholder { color: #999; }
+::-moz-placeholder { color: #999; }
+:-ms-input-placeholder { color: #999; }
+.placeholder { color: #999; }
+/**
+ * 清除浮动
+ */
+.f-cb:after, .f-cbli li:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: "."; }
+.f-cb, .f-cbli li { zoom: 1; }
+/**
+ * 定义元素如何显示
+*/
+.f-dib { display: inline-block; *display: inline; *zoom: 1; }
+.f-di { display: inline; }
+.f-dn { display: none; }
+.f-db { display: block; }
+.f-dt { display: table; }
+.f-dtr { display: table-row; }
+.f-dtc { display: table-cell; }
+/**
+ * 定义浮动
+*/
+.f-fl { float: left; }
+.f-fr { float: right; }
+.f-fn { float: none; }
+/**
+ * 定义元素定位类型
+ */
+.f-pr { position: relative; }
+.f-pa { position: absolute; }
+.f-pf { position: fixed; }
+
+/**
+ * 定义元素超出隐藏
+ */
+.f-oh { overflow: hidden; }
+/**
+ * 定义字体相关样式
+ */
+.f-tal { text-align: left; }
+.f-tac { text-align: center; }
+.f-tar { text-align: right; }
+.f-fwb { font-weight: bold; }
+.f-tdu, .f-tdu:hover { text-decoration: underline; }
+.f-tdn, .f-tdn:hover { text-decoration: none; }
+
+/**
+ * 溢出单行文本显示省略号
+ */
+.f-toe { overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; }
+/**
+ * 溢出文本强制换行
+ */
+.f-pre { overflow: hidden; text-align: left; white-space: pre-wrap; word-wrap: break-word; word-break: break-all; }
+/**
+ * 定义鼠标悬浮样式
+ */
+.f-csp { cursor: pointer; }
+/**
+ * 定义子元素垂直显示样式
+ */
+.f-vat, .f-vata * { vertical-align: top; }
+.f-vab, .f-vaba * { vertical-align: bottom; }
+.f-vam, .f-vama * { vertical-align: middle; }
+/**
+ * 表格布局固定
+ */
+.f-tlf { table-layout: fixed; }
+/**
+*外边距样式
+*/
+.f-pd5{padding: 5px}
+.f-pd10{padding: 10px}
+.f-pd20{padding: 20px}
+.f-pd30{padding: 30px}
+/**
+*内边距样式
+*/
+.f-mt5{margin-top: 5px}
+.f-mt10{margin-top: 10px}
+.f-mt20{margin-top: 20px}
+.f-mt30{margin-top: 30px}
+.f-mb5{margin-bottom: 5px}
+.f-mb10{margin-bottom: 10px}
+.f-mb20{margin-bottom: 20px}
+.f-mb30{margin-bottom: 30px}
+.f-ml10{margin-left: 10px}
+.f-ml20{margin-left: 20px}
+.f-ml30{margin-left: 30px}
+.f-mr10{margin-right: 10px}
+.f-mr20{margin-right: 20px}
+.f-mr30{margin-right: 30px}
+/**
+*显示
+*/
+.f-none{display: none}
+.f-block{display: block}
+.f-inline{display: inline}
+.f-visbily{visibility: visible}
+.f-hidden{visibility: hidden}
+.f-title {
+    min-height: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+/**
+*链接
+*/
+.f-link{
+    color: #4fb652;
+}
+.f-nolink{
+    color: #4D4D4D;
+}
+
+.f-wd100{
+    width: 100%;
+}
+.f-wd30{
+    width: 30%;
+}
+.f-wd50{
+    width: 50%;
+}
+.mask {
+    position: absolute; top: 50%;left: 50%; filter: alpha(opacity=60);
+    background-color:#4fb652;
+    color: #ffffff;
+    z-index: 1002;
+    border: 1px;
+    border-radius: 3px;
+    opacity:0.5; -moz-opacity:0.5;
+    display: none;
+    padding: 20px;
+}
+/*表格颜色*/
+.f-dj{
+    background-color: #fffff1;
+}
+.f-fh{
+    background-color: rgba(255, 229, 186, 0.23);
+}
+.f-js{
+    background-color: #f1f1f1;
+}
+.f-sj{
+    background-color: #f2f9e3;
+}
+.f-jd {
+    background-color: #f7f7f9;
+}
+
+/*右侧区域*/
+.main-container {
+    padding: 0;
+}

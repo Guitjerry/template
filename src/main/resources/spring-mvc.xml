@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                http://www.springframework.org/schema/mvc
+                http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+                http://www.springframework.org/schema/task
+                http://www.springframework.org/schema/task/spring-task-3.2.xsd" >
+
+
+    <!-- SpringMVC的扫描范围 -->
+    <context:component-scan base-package="com.csair.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <!-- 第二个注解包，这里面只有@Scheduled，所以不扫描controller -->
+    <context:component-scan base-package="com.csair.schedule">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 添加注解驱动 -->
+    <mvc:annotation-driven />
+
+    <!-- 默认访问跳转到登录页面，即定义无Controller的path<->view直接映射
+    <mvc:view-controller path="/" view-name="redirect:/login"/>
+    -->
+
+    <!-- 静态文件访问 -->
+    <!-- <mvc:resources mapping="/resources/**" location="/resources/" /> -->
+
+    <!-- 用于返回json格式 -->
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/x-www-form-urlencoded;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 完成请求和注解POJO的映射 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置SpringMVC的视图解析器 -->
+    <!-- 其viewClass属性的默认值就是org.springframework.web.servlet.view.JstlView -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> -->
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <mvc:interceptors>
+        <!-- 配置登陆拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/**/css/*"/>
+            <mvc:exclude-mapping path="/**/js/*"/>
+            <mvc:exclude-mapping path="/**/common/*"/>
+            <mvc:exclude-mapping path="/**/images/*"/>
+
+            <bean class="com.csair.Interceptor.LoginHandlerIntercepter"></bean>
+
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 启用SpringMVC的注解功能,它会自动注册HandlerMapping、HandlerAdapter、ExceptionResolver的相关实例 -->
+    <mvc:annotation-driven />
+    <mvc:resources location="/dist/js/" mapping="/dist/js/**" />
+    <mvc:resources location="/dist/css/" mapping="/dist/css/**" />
+    <mvc:resources location="/dist/fonts/" mapping="/dist/fonts/**" />
+    <mvc:resources location="/css/" mapping="/css/**" />
+    <mvc:resources location="/js/" mapping="/js/**" />
+    <mvc:resources location="/images/" mapping="/gif/**" />
+    <mvc:resources location="/images/" mapping="/png/**" />
+    <mvc:resources location="/images/" mapping="/jpg/**" />
+    <mvc:resources location="/dist/fonts/" mapping="/dist/fonts/**" />
+    <mvc:default-servlet-handler/>
+    <!-- 总错误处理-->
+    <!--     <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+            <property name="defaultErrorView">
+                <value>/base/error</value>
+            </property>
+            <property name="defaultStatusCode">
+                <value>500</value>
+            </property>
+            <property name="warnLogCategory">
+                <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
+            </property>
+        </bean> -->
+
+    <!-- 静态资源加载 -->
+
+    <!-- 定时器配置
+   task:executor/@pool-size：可以指定执行线程池的初始大小、最大大小
+   task:executor/@queue-capacity：等待执行的任务队列的容量
+   task:executor/@rejection-policy：当等待队已满时的策略，分为丢弃、由任务执行器直接运行等方式
+  -->
+    <task:scheduler id="scheduler" pool-size="10" />
+    <task:executor id="executor" keep-alive="3600" pool-size="100-200"
+                   queue-capacity="500" rejection-policy="CALLER_RUNS" />
+    <task:annotation-driven executor="executor" scheduler="scheduler" />
+
+
+</beans>

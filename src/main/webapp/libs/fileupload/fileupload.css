@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fileupload-wrap{
+	position:relative;
+	width:69px;
+	height:33px;
+}
+.trigger-btn{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-image:url(../../images/upload.png);
+	cursor:pointer;
+	font-size: 13px;
+	text-align: center;
+	line-height: 2.5;
+}
+.upload-viewer{
+	width:88px;
+	height:auto;
+	border:1px solid #a7a6aa;
+	padding:2px;
+	position:relative;
+	margin-bottom:10px;
+}
+.imgDelete{
+	display:block;
+	position:absolute;
+	right:0;
+	top:-0;
+	cursor:pointer;
+}

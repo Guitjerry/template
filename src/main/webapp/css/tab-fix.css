@@ -1,0 +1,12 @@
+.tab-content{
+	position: relative;
+}
+.cm-tab-panel{
+	width:100%;
+	position: absolute;
+	top: 0px;
+	left: -999px;
+}
+.cm-tab-active{
+	left:0px!important;
+}

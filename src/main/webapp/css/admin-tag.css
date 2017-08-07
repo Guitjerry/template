@@ -1,0 +1,42 @@
+
+/* tab标签样式 */
+	
+      ul.nav-tabs{
+        border: none;
+      }
+      .nav-tabs>li{
+        outline: none;
+      }
+      .nav-tabs>li>a{
+        border-radius: 0px;
+        margin: 0;
+        outline: none;
+        border-left: 0;
+        border-right:1px solid #ddd;
+        border-bottom:1px solid #ddd;
+        border-top: 3px solid #f2f2f2;
+        background-color: #f2f2f2;
+        font-weight: 700;
+        font-size: 14px;
+        padding-left: 40px;
+        padding-right: 40px;
+
+      }
+      .nav-tabs>li.active>a,
+      .nav-tabs>li.active>a:hover,
+      .nav-tabs>li.active>a:focus{
+        color: #5da216;
+        background-color: #fff;
+        border-left: 0;
+        border-right:1px solid #ddd;
+        border-bottom:1px solid #ddd;
+        border-top: 3px solid #8dc752;
+      }
+
+      .nav-tabs>li>a,
+      .nav-tabs>li>a:hover{
+        color: #5a5a5a;
+      }
+      .tab-wrap{
+      	border:1px solid #ddd;
+      }
